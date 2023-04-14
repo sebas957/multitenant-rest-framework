@@ -8,8 +8,6 @@ from rest_framework import serializers
 class SweetTypeList(APIView):
     def get(self, request):
         with tenant_context(request.tenant):
-            print(request.tenant)
-            print(request)
             sweets = SweetType.objects.all()
             serializer = SweetTypeSerialize(sweets, many=True)
             return JsonResponse(serializer.data, safe=False)
