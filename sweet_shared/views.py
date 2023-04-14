@@ -1,17 +1,9 @@
 from django_tenants.utils import tenant_context
 from rest_framework.views import APIView
 from .models import SweetType
-#from serializacion import SweetTypeSerialize
+from sweet_shared.serializacion.SweetTypeSerialize import SweetTypeSerialize
 from django.http import JsonResponse
 from rest_framework import serializers
-
-
-
-class SweetTypeSerialize(serializers.ModelSerializer):
-    class Meta:
-        model = SweetType
-        fields = '__all__'
-
 
 class SweetTypeList(APIView):
     def get(self, request):
